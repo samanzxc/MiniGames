@@ -36,7 +36,7 @@ function rollCoin() {
     money.value -= sumBet.value
     isStartGame.value = true
     const coin = document.querySelector('.coin')
-    let rNum = Math.floor(Math.random() * 2 + 1)
+    let rNum = Math.floor(Math.random() * 1+ 1)
 
     if (rNum === 1) {
       coin.style.transform = 'rotateX(360deg)'
