@@ -3,7 +3,7 @@ import {ref} from 'vue'
 import coinFlip from './components/coinFlip.vue'
 import bombGame from './components/bombGame.vue'
 
-let activeGame = ref('coinFlip')
+let activeGame = ref('bomb')
 </script>
 
 <template>

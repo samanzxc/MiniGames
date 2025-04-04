@@ -42,6 +42,11 @@ function checkBomb(bomb) {
       bomb.activated = true
       winBet.value = 0
       isStarted.value = false
+      plate.value.forEach((el)=>{
+    if (el.isBomb) {
+      el.activated = true
+    }
+  })
     } else {
       bomb.activated = true
       winBet.value += sumBet.value * (bombCount.value / 10)
@@ -55,6 +60,11 @@ function checkBomb(bomb) {
 }
 function endGame() {
   isStarted.value = false
+  plate.value.forEach((el)=>{
+    if (el.isBomb) {
+      el.activated = true
+    }
+  })
   money.value += Number(winBet.value.toFixed(2))
   money.value = Number(money.value.toFixed(2))
   winBet.value = 0
@@ -72,10 +82,7 @@ function endGame() {
         <div class="bomb" v-for="(bomb, index) in plate"
           :key="index"
           @click="checkBomb(bomb)"
-          :class="{
-            active__bomb: bomb.isBomb && bomb.activated,
-            no__active__bomb: bomb.activated && !bomb.isBomb
-          }"
+          :class="{active__bomb: bomb.isBomb && bomb.activated, no__active__bomb: bomb.activated && !bomb.isBomb}"
         ><img src="https://cdn3.iconfinder.com/data/icons/video-games-3/64/14_explosive_bomb-1024.png" alt=""></div>
       </div>
     </div>
